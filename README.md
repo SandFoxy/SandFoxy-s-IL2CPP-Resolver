@@ -1,13 +1,13 @@
-## IL2CPP Resolver
+## SandFoxy's IL2CPP Resolver
 A run-time API resolver for IL2CPP Unity.
 
-[External Version(Rework WIP)](https://github.com/extremeblackliu/IL2CPP_Resolver_External) | [(Old) Pre-HeaderOnly Version](https://github.com/sneakyevil/IL2CPP_Resolver/tree/old_nonheader)
+Based On [sneakyevil/IL2CPP_Resolver](https://github.com/sneakyevil/IL2CPP_Resolver)
 
 ### Quick Example
 ```cpp
 #include <IL2CPP_Resolver.hpp>
 
-void SomeFunction()
+void DllMain()
 {
     IL2CPP::Initialize(); // This needs to be called once!
 
@@ -17,20 +17,4 @@ void SomeFunction()
 }
 ```
 
-### Registering OnUpdate Callback
-```cpp
-void OurUpdateFunction()
-{
-    // Your special code...
-}
-
-void OnLoad()
-{
-    IL2CPP::Initialize();
-
-    IL2CPP::Callback::Initialize();
-    IL2CPP::Callback::OnUpdate::Add(OurUpdateFunction);
-}
-```
-
-More: https://sneakyevil.gitbook.io/il2cpp-resolver/
+Want help? Fell free to ask issues!
