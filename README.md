@@ -13,6 +13,8 @@ Based On [sneakyevil/IL2CPP_Resolver](https://github.com/sneakyevil/IL2CPP_Resol
 
 DWORD WINAPI MainThread(LPVOID lpReserved)
 {
+	CreateConsole();
+
 	IL2CPP::Initialize(); //Call Once
 
 	Unity::CGameObject* localplayer = Unity::GameObject::Find("Localplayer");
@@ -23,8 +25,10 @@ DWORD WINAPI MainThread(LPVOID lpReserved)
 	if (!baseplayer)
 		return FALSE;
 
-	baseplayer->SetMemberValue<const float>("walkSpeed", 100.f);
+	Unity::System_String* displayName = baseplayer->GetMemberValue<Unity::System_String*>("displayName");
+	std::cout << displayName->ToString() << std::endl;
 
+	FreeConsole();
 	return TRUE;
 }
 
